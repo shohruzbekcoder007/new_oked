@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="/css/semantic.css")
+    link(rel="stylesheet", href="/css/login.css")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    .ui.top.fixed.menu.my-nav
+        .item.left
+            img.logo-img(src='/images/uzstat.png' width='100px')
+        .user-name=name
+        .item.right
+            a(href='/').ui.primary.button Chiqish
+    .ui.container.my-container
+        a.ui.button(href='/oked/allokeds') Barchasini hisoblash
+        .ui.piled.segment
+            h4.ui.block.header 1-kb shakli hisobotini topshirgan tashkilotlar ro'yxati
+            table.ui.celled.table
+                thead
+                    tr 
+                        th Hisobot turi
+                        th inn
+                        th okpo
+                        th soato
+                        th Okedni hisoblash
+                    tbody
+                        each val, key in organizations
+                            tr 
+                                td= val.form_type
+                                td= val.inn 
+                                td= val.okpo 
+                                td= val.soato
+                                td 
+                                    //- a.ui.primary.button(href=`/oked/calculate?link=${val.id}&attempts=${val.attempts}&oked=${val.oked}&inn=${val.inn}&okpo=${val.okpo}`) okedni hisoblash
+                                    a.ui.primary.button(href=`/oked/calculate?link=${2578713}&attempts=${3}&oked=${85390}&inn=${999999902}&okpo=${88888802}`) okedni hisoblash
+    .my-pagination 
+        .ui.pagination.menu
+            if(perpage)
+                a(href=`/oked/nextpage?page=${page-1}`).item= page-1
+            a(href="#").active.item= page
+            if(nextpage)
+                a(href=`/oked/nextpage?page=${page+1}`).item= (parseInt(page)+1)

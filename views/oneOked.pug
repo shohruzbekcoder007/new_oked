@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="/css/semantic.css")
+    link(rel="stylesheet", href="/css/login.css")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    .ui.top.fixed.menu.my-nav
+        .item.left
+            img.logo-img(src='/images/uzstat.png' width='100px')
+        .user-name=name
+        .item.right
+            a(href='/').ui.primary.button Chiqish
+    .ui.container.my-container
+        .ui.piled.segment
+            table.ui.celled.table
+                thead
+                    tr 
+                        th inn
+                        th okpo
+                        th oldOked
+                        th newOked
+                        th countXodim
+                        th homeEmployees
+                        th graduates
+                        th avarageCountEmployeesPerYear
+                    tbody
+                            tr 
+                                td= org.inn
+                                td= org.okpo
+                                td= org.oldOked 
+                                td= org.newOked 
+                                td= org.countXodim
+                                td= org.homeEmployees
+                                td= org.graduates
+                                td= org.avarageCountEmployeesPerYear
